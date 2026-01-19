@@ -158,7 +158,7 @@ const LoginPage = () => {
 
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="body2" sx={{ fontFamily: 'Montserrat' }}>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link href="/signup">
                 <Typography
                   component="span"
