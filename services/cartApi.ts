@@ -1,16 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface CartItem {
+  id: string;
   productId: string;
   quantity: number;
-  name?: string;
-  price?: number;
-  image?: string;
+  name: string;
+  price: number;
+  image: string | null;
 }
 
 export interface Cart {
+  sessionId: string;
   items: CartItem[];
-  totalPrice?: number;
+  total: number;
 }
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
