@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import {
   Box,
   Container,
@@ -10,13 +10,14 @@ import {
   Alert,
   Paper,
   Link as MuiLink,
+  CircularProgress,
 } from '@mui/material';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { authApi } from '@/services/authApi';
 import { useAuth } from '@/contexts/AuthContext';
 
-const LoginPage = () => {
+const LoginContent = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -177,6 +178,20 @@ const LoginPage = () => {
         </Paper>
       </Box>
     </Container>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <Suspense 
+      fallback={
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+          <CircularProgress />
+        </Box>
+      }
+    >
+      <LoginContent />
+    </Suspense>
   );
 };
 
