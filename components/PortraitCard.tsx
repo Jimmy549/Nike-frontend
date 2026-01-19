@@ -13,7 +13,7 @@ import { useAddToCartMutation } from '@/services/cartApi';
 
 interface PortraitCardProps {
   id: string;
-  imageSrc: string;
+  imageSrc: string | null;
   title: string;
   price: number;
 }
